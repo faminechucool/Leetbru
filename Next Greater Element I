@@ -1,0 +1,32 @@
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int [] arr1=new int[nums1.length];
+        for(int i=0;i<nums1.length;i++){
+            for(int j=0;j<nums2.length;j++){
+            //when we find the element that is in both the arrays
+                if(nums1[i]==nums2[j]){
+                //find the index
+                    int k=j;
+                    //check out of bound condition
+                    if(k+1>=nums2.length){
+                        arr1[i]=-1;
+                    }
+                    //otherwise loop through and find the greatest
+                    else{
+                        for(int l=k+1;l<nums2.length;l++){
+                            if(nums2[k]<nums2[l]){
+                                arr1[i]=nums2[l];
+                                break;
+                            }
+                            //if no greater is there put -1;
+                            else{
+                                arr1[i]=-1;
+                            }
+                        }
+                    }
+                }   
+            }
+        }
+        return arr1;
+    }
+}
