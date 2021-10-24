@@ -1,0 +1,22 @@
+class Solution {
+    public int countNodes(TreeNode root) {
+        int count=1;
+        Queue<TreeNode>q=new LinkedList<>();
+        if(root==null){
+            return 0;
+        }
+        q.add(root);
+        while(!q.isEmpty()){
+                TreeNode n=q.remove();
+                if(n.left!=null){
+                    count++;
+                    q.add(n.left);
+                }
+                if(n.right!=null){
+                    count++;
+                    q.add(n.right);
+                }
+        }
+        return count;
+    }
+}
