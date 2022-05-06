@@ -1,2 +1,2 @@
 # Leetbru
-Leet qs i solved
+Leet qs i solved by myself 😎
