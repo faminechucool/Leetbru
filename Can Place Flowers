@@ -1,0 +1,33 @@
+class Solution {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        HashSet<Integer> map1=new HashSet<>();
+        if(flowerbed.length==1 && flowerbed[0]==0 && n==1 || n==0){
+            return true;
+        }
+         if(flowerbed.length==1 && flowerbed[0]==1 && n!=0){
+            return false;
+        }
+        
+        int flow=n;
+        int i1=0;
+        for(i1=0;i1<flowerbed.length;i1++){
+            if(flowerbed[i1]==0 && i1==0 && flow>0 && flowerbed[i1+1]!=1 && !map1.contains(i1+1)){
+                map1.add(i1);
+                flow--;
+            }
+            else if(flowerbed[i1]==0 && i1==flowerbed.length-1 && flow>0 && flowerbed[i1-1]!=1 && !map1.contains(i1-1)){
+                map1.add(i1);
+                flow--;
+            }
+            else if(flowerbed[i1]==0 && i1!=0 && i1!=flowerbed.length-1 && flow>0 && flowerbed[i1-1]!=1 && flowerbed[i1+1]!=1 && !map1.contains(i1-1) && !map1.contains(i1+1)){
+                map1.add(i1);
+                flow--;
+            }
+        }
+        
+        if(map1.size()==n){
+            return true;
+        }
+        return false;
+    }
+}
