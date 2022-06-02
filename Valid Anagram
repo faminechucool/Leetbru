@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int[] val1=new int[26];
+        int[] val2=new int[26];
+        if(s.length()!=t.length()){
+            return false;
+        }
+        for(int i=0;i<t.length();i++){
+            val1[t.charAt(i)-'a']++;
+        }
+        for(int i=0;i<s.length();i++){
+            val2[s.charAt(i)-'a']++;
+        }
+        int sum1=0;
+        int sum2=0;
+        for(int i=0;i<26;i++){
+            if(val1[i]!=val2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
